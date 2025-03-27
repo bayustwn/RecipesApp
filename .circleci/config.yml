@@ -9,6 +9,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Fix Cloud SDK GPG Key Issue
+          command: |
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3 || \
+            sudo apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys C0BA5CE6DC6315A3
+      - run:
           name: Install & Set Java 17
           command: |
             sudo apt update
