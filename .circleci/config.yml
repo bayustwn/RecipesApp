@@ -5,8 +5,7 @@ orbs:
 
 jobs:
   build:
-    docker:
-      - image: cimg/openjdk:17.0
+    executor: android/android
     steps:
       - checkout
       - run:
@@ -14,6 +13,13 @@ jobs:
           command: |
             sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3 || \
             sudo apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys C0BA5CE6DC6315A3
+      - run:
+          name: Install OpenJDK 17
+          command: |
+            sudo apt-get update && sudo apt-get install openjdk-17-jdk
+            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+            sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+            java -version
       - run:
           name: Verify Java Version
           command: java -version
