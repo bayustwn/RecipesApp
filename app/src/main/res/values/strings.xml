@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RecipesApp</string>
+    <string name="cuisine_name">Cuisine Name</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="error_displaying_recipes">Error displaying recipes</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="Instructions">Instructions</string>
+    <string name="title_favorite">FavoriteFeature</string>
+    <string name="favorite">Favorite</string>
+    <string name="cuisine_image">cuisine_image</string>
+</resources>
