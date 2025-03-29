@@ -3,6 +3,7 @@ package com.example.recipesapp.ui
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -60,9 +61,10 @@ class HomeActivity : AppCompatActivity() {
                             binding.apply {
                                 loading.visibility = View.VISIBLE
                                 listRecipes.visibility = View.GONE
+                                Log.d("ERRORS",state.message)
                                 Toast.makeText(
                                     this@HomeActivity,
-                                    getString(R.string.error_displaying_recipes),
+                                    getString(R.string.error_displaying_recipes) + state.message,
                                     Toast.LENGTH_LONG
                                 ).show()
                             }

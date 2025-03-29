@@ -45,6 +45,14 @@ class DetailRecipeActivity : AppCompatActivity() {
             insets
         }
 
+        binding.scrollview.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                binding.favoriteToggle.hide()
+            } else {
+                binding.favoriteToggle.show()
+            }
+        }
+
         val recipe = intent.getIntExtra(RECIPES_ID,0)
 
         recipesViewModel.getRecipeById(recipe).apply {

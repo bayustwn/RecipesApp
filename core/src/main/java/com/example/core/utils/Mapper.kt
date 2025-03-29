@@ -42,6 +42,10 @@ object Mapper {
         return FavoriteEntity(id = id, name = name, difficulty = difficulty, image = image)
     }
 
+    fun String.getDomain(): String {
+        return this.split("://")[1]
+            .split('/')[0]
+    }
 
 
 

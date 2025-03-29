@@ -19,3 +19,31 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#-keep class com.example.core.data.model.RecipesResponse {*;}
+#-keep class com.example.core.data.model.RecipesResponse {*;}
+
+#KOIN
+-keep class com.example.core.di.** { *; }
+-keep class org.koin.** { *; }
+
+#RETROFIT
+-keep interface com.example.core.data.remote.api.ApiService { *; }
+-keep class retrofit2.** { *; }
+
+#MODEL
+-keep class com.example.core.domain.model.** { *; }
+-keep class com.example.core.data.model.** { *; }
+
+#GSON
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.** { *; }
+
+#VIEWMODEl
+-keep class com.example.core.presentation.viewmodel.FavoriteViewModel { *; }
+-keep class com.example.core.presentation.viewmodel.RecipesViewModel { *; }
+-keep class com.example.core.presentation.state.RecipesUiState { *; }
+-keep class com.example.core.presentation.state.RecipesUiState$* { *; }
+

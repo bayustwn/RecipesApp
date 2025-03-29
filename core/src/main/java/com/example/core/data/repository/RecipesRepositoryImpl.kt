@@ -21,7 +21,7 @@ class RecipesRepositoryImpl(
             val data = response.recipes?.mapNotNull { it?.toDomain()?.toItem() } ?: emptyList()
             emit(data)
         } catch (e: IOException) {
-            throw Exception("Periksa koneksi internet")
+            throw Exception("Periksa koneksi internet" + e.message + e.cause)
         }
     }.flowOn(Dispatchers.IO)
 

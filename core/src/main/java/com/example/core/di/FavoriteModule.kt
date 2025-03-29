@@ -10,21 +10,28 @@ import com.example.core.domain.usecase.favorite.FavoriteUseCase
 import com.example.core.domain.usecase.favorite.GetAllFavoriteUseCases
 import com.example.core.domain.usecase.favorite.GetFavoriteByIdUseCases
 import com.example.core.presentation.viewmodel.FavoriteViewModel
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.factory
 import org.koin.dsl.module
 
 val favoriteModule = module {
 
+    factory { get<FavoriteDatabase>().favoriteDao() }
+
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("kukuruyuk".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             FavoriteDatabase::class.java,
             "favorite_db"
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
-
-    single { get<FavoriteDatabase>().favoriteDao() }
 
     single<FavoriteRepository>{
         FavoriteRepositoryImpl(get())
