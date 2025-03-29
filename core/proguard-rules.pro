@@ -47,3 +47,7 @@
 -keep class com.example.core.presentation.state.RecipesUiState { *; }
 -keep class com.example.core.presentation.state.RecipesUiState$* { *; }
 
+#SQLCHIPER
+-keep class net.sqlcipher.** { *; }
+-keep class net.sqlcipher.database.* { *; }
+
