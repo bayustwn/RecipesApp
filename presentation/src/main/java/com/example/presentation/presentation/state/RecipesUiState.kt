@@ -1,4 +1,4 @@
-package com.example.core.presentation.state
+package com.example.presentation.presentation.state
 
 sealed class RecipesUiState<out T> {
     object Loading : RecipesUiState<Nothing>()

@@ -20,29 +20,13 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-#-keep class com.example.core.data.model.RecipesResponse {*;}
-#-keep class com.example.core.data.model.RecipesResponse {*;}
-
 #KOIN
 -keep class org.koin.** { *; }
+-keep class com.example.di.di.** { *;}
 
 #RETROFIT
 -keep interface com.example.core.data.remote.api.ApiService { *; }
 -keep class retrofit2.** { *; }
-
-#MODEL
--keep class com.example.core.domain.model.** { *; }
--keep class com.example.core.data.model.** { *; }
-
-#REPOSITORY
--keep class com.example.core.domain.repository.** { *; }
--keep class com.example.core.data.repository.** { *; }
--keep class com.example.core.data.local.repository.** { *; }
--keep class com.example.core.domain.usecase.** {*;}
-
-#ROOM
--keep class com.example.core.data.local.database.** {*;}
--keep class com.example.core.data.local.dao.** {*;}
 
 #GSON
 -keepattributes Signature
@@ -50,7 +34,8 @@
 -keep class sun.misc.** { *; }
 -keep class com.google.gson.** { *; }
 
--keep class com.example.core.utils.Mapper { *; }
+#MAPPER
+-keep class com.example.core.utils.Mapper {*;}
 
 #SQLCHIPER
 -keep class net.sqlcipher.** { *; }

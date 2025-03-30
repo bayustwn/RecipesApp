@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.core.presentation.viewmodel.FavoriteViewModel
+import com.example.presentation.presentation.viewmodel.FavoriteViewModel
 import com.example.favorite.R
 import com.example.favorite.databinding.ActivityFavoriteBinding
 import com.example.recipesapp.ui.DetailRecipeActivity

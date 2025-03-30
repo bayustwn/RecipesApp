@@ -17,8 +17,6 @@ android {
 
     buildTypes {
         release {
-            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
-            buildConfigField("String", "CERTIFICATE", "sha256/X3v3kN0IWM02QFIWfYdXyh9yxMBP5T6kEKpQhR7R4X0=")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -26,8 +24,6 @@ android {
             )
         }
         debug {
-            buildConfigField ("String", "BASE_URL", "\"https://dummyjson.com/\"")
-            buildConfigField("String", "CERTIFICATE", "\"sha256/X3v3kN0IWM02QFIWfYdXyh9yxMBP5T6kEKpQhR7R4X0=\"")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,10 +35,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    buildFeatures{
-        buildConfig = true
     }
 
     kotlinOptions {
@@ -66,22 +58,19 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    //Koin
+    api(libs.koin.core)
+    api (libs.koin.android)
+
     //Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
-    //Koin
-    api(libs.koin.core)
-    api (libs.koin.android)
-
-    // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
     debugImplementation(libs.leakcanary.android)
     api(libs.android.database.sqlcipher)
     api(libs.androidx.sqlite.ktx)
 
-    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(libs.logging.interceptor)
 
 }

@@ -16,11 +16,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recipesapp.R
 import com.example.recipesapp.databinding.ActivityHomeBinding
-import com.example.core.domain.model.Recipe
 import com.example.core.domain.model.RecipeItem
-import com.example.core.presentation.state.RecipesUiState
+import com.example.presentation.presentation.state.RecipesUiState
 import com.example.recipesapp.ui.adapter.ItemAdapter
-import com.example.core.presentation.viewmodel.RecipesViewModel
+import com.example.presentation.presentation.viewmodel.RecipesViewModel
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest

@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recipesapp.databinding.ItemRecipeBinding
-import com.example.core.domain.model.Recipe
 import com.example.core.domain.model.RecipeItem
 import com.example.recipesapp.ui.adapter.ItemAdapter.ViewHolder
 

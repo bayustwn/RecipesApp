@@ -15,9 +15,9 @@ import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.core.domain.model.RecipeItem
-import com.example.core.presentation.state.RecipesUiState
-import com.example.core.presentation.viewmodel.FavoriteViewModel
-import com.example.core.presentation.viewmodel.RecipesViewModel
+import com.example.presentation.presentation.state.RecipesUiState
+import com.example.presentation.presentation.viewmodel.FavoriteViewModel
+import com.example.presentation.presentation.viewmodel.RecipesViewModel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

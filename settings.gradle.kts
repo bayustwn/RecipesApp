@@ -23,3 +23,5 @@ rootProject.name = "RecipesApp"
 include(":app")
 include(":core")
 include(":favorite")
+include(":di")
+include(":presentation")

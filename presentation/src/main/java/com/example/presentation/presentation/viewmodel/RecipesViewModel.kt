@@ -1,11 +1,11 @@
-package com.example.core.presentation.viewmodel
+package com.example.presentation.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.domain.model.Recipe
 import com.example.core.domain.model.RecipeItem
 import com.example.core.domain.usecase.recipes.RecipeUseCases
-import com.example.core.presentation.state.RecipesUiState
+import com.example.presentation.presentation.state.RecipesUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch

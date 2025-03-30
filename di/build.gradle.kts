@@ -1,33 +1,33 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp") version "2.0.21-1.0.27"
-    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.example.recipesapp"
+    namespace = "com.example.di"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.recipesapp"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
+            buildConfigField("String", "CERTIFICATE", "sha256/X3v3kN0IWM02QFIWfYdXyh9yxMBP5T6kEKpQhR7R4X0=\"")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
-        debug {
+        debug{
+            buildConfigField("String", "BASE_URL", "\"https://dummyjson.com/\"")
+            buildConfigField("String", "CERTIFICATE", "\"sha256/X3v3kN0IWM02QFIWfYdXyh9yxMBP5T6kEKpQhR7R4X0=\"")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -35,11 +35,9 @@ android {
             )
         }
     }
-
     buildFeatures{
-        viewBinding = true
+        buildConfig = true
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -47,28 +45,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    dynamicFeatures += setOf(":favorite")
-
 }
 
 dependencies {
 
+    implementation(project(":core"))
+    implementation(project(":presentation"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    //Glide
-    implementation(libs.glide)
-    implementation(libs.play.core.ktx)
+    //Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
-    implementation(project(":core"))
-    implementation(project(":di"))
-    implementation(project(":presentation"))
-
-    debugImplementation(libs.leakcanary.android)
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 }

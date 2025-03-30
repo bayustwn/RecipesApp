@@ -1,8 +1,8 @@
 package com.example.recipesapp
 
 import android.app.Application
-import com.example.core.di.appModule
-import com.example.core.di.favoriteModule
+import com.example.di.di.appModule
+import com.example.di.di.favoriteModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 

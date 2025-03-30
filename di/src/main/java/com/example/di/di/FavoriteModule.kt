@@ -1,4 +1,4 @@
-package com.example.core.di
+package com.example.di.di
 
 import androidx.room.Room
 import com.example.core.data.local.database.FavoriteDatabase
@@ -9,12 +9,11 @@ import com.example.core.domain.usecase.favorite.DeleteFavoriteUseCases
 import com.example.core.domain.usecase.favorite.FavoriteUseCase
 import com.example.core.domain.usecase.favorite.GetAllFavoriteUseCases
 import com.example.core.domain.usecase.favorite.GetFavoriteByIdUseCases
-import com.example.core.presentation.viewmodel.FavoriteViewModel
+import com.example.presentation.presentation.viewmodel.FavoriteViewModel
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.factory
 import org.koin.dsl.module
 
 val favoriteModule = module {
